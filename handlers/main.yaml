@@ -1,0 +1,7 @@
+---
+- name: locksmithd_systemd
+  systemd: 
+    name: locksmithd
+    enabled: yes
+    state: started
+    daemon_reload: yes

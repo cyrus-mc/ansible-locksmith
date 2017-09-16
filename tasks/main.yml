@@ -1,0 +1,16 @@
+---
+- name: Drop-in Directory
+  file: 
+    path: /etc/systemd/system/locksmithd.service.d
+    state: directory
+    mode: 0755
+  tags: locksmithd_systemd
+    
+- name: Drop-In 10-etcd-config.conf
+  template:
+    src: 10-etcd-config.conf.j2
+    dest: /etc/systemd/system/locksmithd.service.d/10-etcd-config.conf
+    mode: 0644
+  notify: 
+  - locksmithd_systemd
+  tags: locksmithd_dropin
