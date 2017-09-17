@@ -1,5 +1,7 @@
 [Service]
+{% if etcd_endpoint %}
 Environment="LOCKSMITHD_ENDPOINT={{ etcd_endpoint }}"
+{% endif %}
 {% if control_group %}
 Environment="LOCKSMITHD_GROUP={{ control_group }}"
 {% endif %}
