@@ -3,3 +3,7 @@ Environment="LOCKSMITHD_ENDPOINT={{ etcd_endpoint }}"
 {% if control_group %}
 Environment="LOCKSMITHD_GROUP={{ control_group }}"
 {% endif %}
+{% if reboot_window_start and reboot_window_length %}
+Environment="LOCKSMITHD_REBOOT_WINDOW_START={{ reboot_window_start }}"
+Environment="LOCKSMITHD_REBOOT_WINDOW_LENGTH={{ reboot_window_length }}"
+{% endif %}
