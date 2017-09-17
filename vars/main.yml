@@ -1,1 +1,6 @@
 ---
+# the control group to place machine into (defaults to none)
+control_group: "{{ ansible_local.k8s_facts.labels.role | default('') }}"
+
+# etcd servers to point at
+etcd_endpoint: "http://{{ ansible_local.k8s_facts.etcd_servers | default('localhost') }}:2379"

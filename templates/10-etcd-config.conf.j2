@@ -1,2 +1,5 @@
 [Service]
-Environment="LOCKSMITHD_ENDPOINT=http://{{ ansible_local.k8s_facts.etcd_servers }}:2379"
+Environment="LOCKSMITHD_ENDPOINT={{ etcd_endpoint }}"
+{% if control_group %}
+Environment="LOCKSMITHD_GROUP={{ control_group }}"
+{% endif %}
