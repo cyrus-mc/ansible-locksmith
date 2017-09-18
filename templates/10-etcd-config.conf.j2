@@ -1,11 +1,11 @@
 [Service]
-{% if etcd_endpoint %}
-Environment="LOCKSMITHD_ENDPOINT={{ etcd_endpoint }}"
+{% if etcd_endpoints %}
+Environment="LOCKSMITHD_ENDPOINT={{ locksmithd_etcd_endpoints }}"
 {% endif %}
-{% if control_group %}
-Environment="LOCKSMITHD_GROUP={{ control_group }}"
+{% if locksmithd_control_group %}
+Environment="LOCKSMITHD_GROUP={{ locksmithd_control_group }}"
 {% endif %}
-{% if reboot_window_start and reboot_window_length %}
-Environment="LOCKSMITHD_REBOOT_WINDOW_START={{ reboot_window_start }}"
-Environment="LOCKSMITHD_REBOOT_WINDOW_LENGTH={{ reboot_window_length }}"
+{% if locksmithd_reboot_window_start and locksmithd_reboot_window_length %}
+Environment="LOCKSMITHD_REBOOT_WINDOW_START={{ locksmithd_reboot_window_start }}"
+Environment="LOCKSMITHD_REBOOT_WINDOW_LENGTH={{ locksmithd_reboot_window_length }}"
 {% endif %}

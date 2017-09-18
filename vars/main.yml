@@ -1,10 +1,10 @@
 ---
 # the control group to place machine into (defaults to none)
-control_group: ""
+locksmithd_control_group: ""
 
 # etcd servers to point at
-etcd_endpoint: ""
+locksmithd_etcd_endpoints: ""
 
 # define the reboot window (both must be defined to take effect)
-reboot_window_start: ""
-reboot_window_length: "1h30m"
+locksmithd_reboot_window_start: ""
+locksmithd_reboot_window_length: "1h30m"
