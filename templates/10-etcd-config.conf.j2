@@ -1,6 +1,16 @@
+{% set static_nodes = [] %}
+{% if locksmithd_etcd_endpoints is sequence and locksmithd_etcd_endpoints is not string %}
+{% for server in locksmithd_etcd_endpoints %}
+{% set infra = "http://%s:2379" % (server) %}
+{% set _ = static_nodes.append(infra) %}
+{% endfor %}
+{% else %}
+{% set infra = "http://%s:2379" % (locksmithd_etcd_endpoints) %}
+{% set _ = static_nodes.append(infra) %}
+{% endif %}
 [Service]
-{% if etcd_endpoints %}
-Environment="LOCKSMITHD_ENDPOINT={{ locksmithd_etcd_endpoints }}"
+{% if locksmithd_etcd_endpoints %}
+Environment="LOCKSMITHD_ENDPOINT={{ static_nodes | join(',') }}"
 {% endif %}
 {% if locksmithd_control_group %}
 Environment="LOCKSMITHD_GROUP={{ locksmithd_control_group }}"
